@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    html, body, .wrapper, .map { height: 100%; margin: 0; padding: 0;}
+  </style>
+</head>
+<body>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/backbone/backbone.js"></script>
+<script src="models/MapModel.js"></script>
+<script src="models/TruckModel.js"></script>
+<script src="models/AppModel.js"></script>
+<script src="collections/Trucks.js"></script>
+<script src="views/SearchView.js"></script>
+<script src="views/MapView.js"></script>
+<script src="views/AppView.js"></script>
+
+<script>
+  $(function(){
+    // set up model objects
+    var app = new AppModel();
+    // build a view for the top level of the whole app
+    var appView = new AppView({model: app});
+    // put the view onto the screen
+    $('body').append(appView.render());
+  });
+</script>
+</body>
+</html>
