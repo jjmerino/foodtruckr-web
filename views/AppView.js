@@ -21,34 +21,12 @@ var AppView = Backbone.View.extend({
           .getBounds();
 
       // fetch trucks from API using this bounds
-      this.fetchTrucks(bounds);
+      this.model.get('map').fetchTrucks(bounds);
 
     },this); // binding is necessary to keep 'this' bound to the view
 
   },
 
-  fetchTrucks: function(bounds){
-
-    // if bounds are not provided, don't query the server
-    if(!bounds){
-      console.warn('Trucks can not be fetched without bounds');
-      return;
-    }
-    var sw = bounds.getSouthWest();
-    var ne = bounds.getNorthEast();
-
-    var url = 'http://localhost:8081/findInRect/'+sw.lat+'/'+ sw.lng+'/'+ ne.lat+'/'+ ne.lng;
-    $.ajax({
-      type:'GET',
-      url: url,
-      dataType:'json',
-      success: function(resp){
-        // on success mutate the trucks property, which will trigger mapModel's change:trucks event
-        this.model.get('map').set('trucks',new Trucks(resp));
-
-      }.bind(this) // binding is necessary to keep 'this' bound to the view
-    })
-  },
 
   render: function(){
     // insert child views into our element
