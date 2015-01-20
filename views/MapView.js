@@ -1,7 +1,7 @@
 var MapView = Backbone.View.extend({
 
   tagName: "div",
-  className: "mapwrapper",
+  className: "map",
   initialize: function() {
 
     this.model.on('change:trucks',function(){
@@ -21,13 +21,10 @@ var MapView = Backbone.View.extend({
     if(map === undefined){
       throw "Map model not set";
     }
-    console.log('rendering');
     if(map === null){
 
-      var mapEl = $('<div class="map">');
-      this.$el.append(mapEl);
       L.mapbox.accessToken = 'pk.eyJ1Ijoiam9tZXJpbm9nIiwiYSI6InNGT0tvZWsifQ.engPCXKX_6z8dmvrtlvWng';
-      map = L.mapbox.map(mapEl[0],'jomerinog.l05n9la7');
+      map = L.mapbox.map(this.$el[0],'jomerinog.l05n9la7',{zoomControl: false});
       // Provide your access token
       this.model.set('map',map);
       map.setZoom(defaults.zoom);
@@ -51,9 +48,11 @@ var MapView = Backbone.View.extend({
     this.markers = [];
 
     trucks.each(function(truck, index){
-      var marker = L.Marker(
+      console.log('create a maker');
+      var marker = L.marker(
         [truck.attributes.latitude, truck.attributes.longitude]
       );
+      marker.addTo(map);
       this.markers.push(marker);
     }.bind(this));
 
