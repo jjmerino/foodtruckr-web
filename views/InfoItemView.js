@@ -5,7 +5,8 @@ var InfoItemView = Backbone.View.extend({
   //set events for highlighting trucks on hover
   events: {
     'mouseover':'highlight',
-    'mouseout': 'removeHighlight'
+    'mouseout': 'removeHighlight',
+    'click': 'select'
   },
 
   initialize: function(){
@@ -32,6 +33,12 @@ var InfoItemView = Backbone.View.extend({
     this.model.set('highlight', false);
   },
 
+  // delegate to the model's select
+  select: function(){
+    this.model.select();
+
+
+  },
 
   render: function(){
 

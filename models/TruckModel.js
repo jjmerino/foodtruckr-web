@@ -1,3 +1,7 @@
 var TruckModel = Backbone.Model.extend({
-  // using empty models instead of generic models to keep the code semantic
+
+  // select a truck for details
+  select: function(){
+    this.trigger('select', this);
+  }
 });

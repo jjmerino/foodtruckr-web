@@ -4,10 +4,15 @@ var InfoView = Backbone.View.extend({
 
   initialize: function(){
 
+    this.truckDetailView = new TruckDetailView();
+
     // when the truck property of the map model changes, re render
     this.model.on('change:trucks',function(){
+      this.model.get('trucks').on('select',function(model){
+        this.truckDetailView.setTruck(model);
+      },this);
       this.render();
-    },this);
+    }, this);
 
     this.render(); // on initialize, render
   },
@@ -25,5 +30,7 @@ var InfoView = Backbone.View.extend({
         return new InfoItemView({model: truck}).render();
       })
     );
+
+    this.$el.append(this.truckDetailView.$el);
   }
 });

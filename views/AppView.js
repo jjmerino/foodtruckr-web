@@ -46,7 +46,6 @@ var AppView = Backbone.View.extend({
         // on success mutate the trucks property, which will trigger mapModel's change:trucks event
         this.model.get('map').set('trucks',new Trucks(resp));
 
-
       }.bind(this) // binding is necessary to keep 'this' bound to the view
     })
   },

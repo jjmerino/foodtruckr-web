@@ -5,8 +5,12 @@
   <title></title>
   <style type="text/css">
     html, body, .wrapper, .map { height: 100%; margin: 0; padding: 0; }
-    .info, .truckList { height:100%; overflow-y : scroll;}
-    .info { padding-top: 51px;}
+    .truckList { height:50%; overflow-y : scroll;}
+    .truckList li {
+      cursor:pointer;
+    }
+    .foodDetails { height:40%; margin-bottom:51px; overflow-y: scroll;}
+    .info { height: 100%; padding-top: 51px;}
   </style>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
@@ -24,6 +28,7 @@
 <script src="views/NavbarView.js"></script>
 <script src="views/InfoView.js"></script>
 <script src="views/InfoItemView.js"></script>
+<script src="views/TruckDetailView.js"></script>
 <script src="views/MapView.js"></script>
 <script src="views/AppView.js"></script>
 <script type="text/html" id="templates_nav">
@@ -37,7 +42,18 @@
 </script>
 <script type="text/html" id="templates_info">
 
-  <ul class="truckList">
+  <input placeholder="Filter" class="form-control">
+  <ul class="truckList panel">
+
+  </ul>
+
+</script>
+<script type="text/html" id="templates_detail">
+<span>Name: </span>
+  <%= applicant %>
+<br>
+<span>Food Items:</span>
+  <ul class="foodItems">
 
   </ul>
 
