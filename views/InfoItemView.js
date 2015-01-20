@@ -1,7 +1,7 @@
 var InfoItemView = Backbone.View.extend({
   tagName: 'li',
 
-  className: ' list-unstyled alert',
+  className: 'list-unstyled alert',
   events: {
     'mouseover':'highlight',
     'mouseout': 'removeHighlight'

@@ -5,8 +5,8 @@
   <title></title>
   <style type="text/css">
     html, body, .wrapper, .map { height: 100%; margin: 0; padding: 0; }
-    .truckList { height:100%; overflow-y : scroll;}
-
+    .info, .truckList { height:100%; overflow-y : scroll;}
+    .info { padding-top: 51px;}
   </style>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
@@ -34,6 +34,13 @@
     </li>
   </ul>
 </div>
+</script>
+<script type="text/html" id="templates_info">
+
+  <ul class="truckList">
+
+  </ul>
+
 </script>
 <script>
   $(function(){

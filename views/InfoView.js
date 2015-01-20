@@ -1,6 +1,6 @@
 var InfoView = Backbone.View.extend({
-  tagName: 'ul',
-  className : 'truckList info col-md-4',
+  tagName: 'div',
+  className : 'info col-md-4',
 
   initialize: function(){
     this.model.on('change:trucks',function(){
@@ -10,9 +10,9 @@ var InfoView = Backbone.View.extend({
   },
 
   render: function(){
-    this.$el.html('').append(
+    var template = _.template($('#templates_info').html());
+    this.$el.html(template).find('.truckList').append(
       this.model.get('trucks').map(function(truck){
-        console.log("AHAm");
         return new InfoItemView({model: truck}).render();
       })
     );
