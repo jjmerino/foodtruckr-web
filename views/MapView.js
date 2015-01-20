@@ -70,6 +70,10 @@ var MapView = Backbone.View.extend({
         truck.set('highlight', false);
       });
 
+      marker.on('click', function(){
+        truck.select();
+      });
+
       // set default opacity low to make selected markers stand out
       marker.setOpacity(0.5);
 
