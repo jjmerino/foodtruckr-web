@@ -63,11 +63,10 @@ var MapView = Backbone.View.extend({
 
       // make mouse hover toggle the highlight property so that this and other views can react
       marker.on('mouseover',function(){
-        truck.set('highlight', true);
-
+        truck.highlight();
       });
       marker.on('mouseout', function(){
-        truck.set('highlight', false);
+        truck.removeHighlight();
       });
 
       marker.on('click', function(){

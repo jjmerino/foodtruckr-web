@@ -25,12 +25,12 @@ var InfoItemView = Backbone.View.extend({
 
   // highlights the truck bound to this view
   highlight: function(){
-    this.model.set('highlight', true);
+    this.model.highlight();
   },
 
   // removes the highlight
   removeHighlight: function(){
-    this.model.set('highlight', false);
+    this.model.removeHighlight();
   },
 
   // delegate to the model's select
