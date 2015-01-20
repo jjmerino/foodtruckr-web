@@ -2,7 +2,12 @@
 var AppModel = Backbone.Model.extend({
 
   initialize: function(){
-    this.set('map', new MapModel());
+    var trucks = new Trucks();
+    var mapModel = new MapModel({
+      trucks: trucks
+    });
+    this.set('map', mapModel);
+
   }
 
 });
