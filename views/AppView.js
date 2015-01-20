@@ -7,7 +7,6 @@ var AppView = Backbone.View.extend({
     // map view watches the map model
     this.mapView = new MapView({model: this.model.get('map')});
 
-    console.log('InfoView');
     // info view also watches the map model
     this.infoView = new InfoView({model: this.model.get('map') });
 
