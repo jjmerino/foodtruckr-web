@@ -15,7 +15,7 @@ var MapModel = Backbone.Model.extend({
     var bounds = map.getBounds();
     var sw = bounds.getSouthWest();
     var ne = bounds.getNorthEast();
-    var url = 'http://localhost:8081/findInRect/'+sw.lat()+'/'+ sw.lng()+'/'+ ne.lat()+'/'+ ne.lng();
+    var url = 'http://localhost:8081/findInRect/'+sw.lat+'/'+ sw.lng+'/'+ ne.lat+'/'+ ne.lng;
     $.ajax({
       type:'GET',
       url: url,

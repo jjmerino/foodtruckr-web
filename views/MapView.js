@@ -1,49 +1,42 @@
 var MapView = Backbone.View.extend({
 
   tagName: "div",
-  className: "map",
-
+  className: "mapwrapper",
   initialize: function() {
-    // Loading the google maps API asynchronously
-    window.initializeMaps = function() {
-      this.render();
-    }.bind(this);
-    window.onload = function(){
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
-      'key=AIzaSyANdjSOYnr9S6r9MThvG7oDCHdb4SXfRY0&' +
-      'callback=initializeMaps';
-      document.body.appendChild(script);
-    };
 
     this.model.on('change:trucks',function(){
       this.render();
 
     },this);
 
+    this.render();
   },
 
   render: function(){
     var defaults = this.model.get('defaults');
-    var zoom = defaults.zoom;
-    var center = defaults.center;
     var trucks = this.model.get('trucks');
-    var latlng = new google.maps.LatLng(center[0], center[1]);
 
-    var mapOptions = {
-        zoom: zoom,
-        center: latlng
-      };
 
     var map = this.model.get('map');
     if(map === undefined){
       throw "Map model not set";
     }
+    console.log('rendering');
     if(map === null){
-      map = new google.maps.Map(this.$el[0],
-        mapOptions);
+
+      var mapEl = $('<div class="map">');
+      this.$el.append(mapEl);
+      L.mapbox.accessToken = 'pk.eyJ1Ijoiam9tZXJpbm9nIiwiYSI6InNGT0tvZWsifQ.engPCXKX_6z8dmvrtlvWng';
+      map = L.mapbox.map(mapEl[0],'jomerinog.l05n9la7');
+      // Provide your access token
       this.model.set('map',map);
+      map.setZoom(defaults.zoom);
+
+      // Make panning async in next event loop to ensure that Leaflet scales correctly
+      setTimeout(function(){
+        map.panTo(L.latLng(defaults.center));
+      },0);
+
     }
 
     // keep track of drawn markers.
@@ -51,19 +44,16 @@ var MapView = Backbone.View.extend({
 
     // clear markers from map
     _.each(this.markers, function(marker){
-      marker.setMap(null);
+      map.removeLayer(marker);
     });
 
     // remove markers from array
     this.markers = [];
 
     trucks.each(function(truck, index){
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(truck.attributes.latitude, truck.attributes.longitude),
-        map: map,
-        title: truck.attributes.applicant,
-        description: truck.attributes.applicant
-      });
+      var marker = L.Marker(
+        [truck.attributes.latitude, truck.attributes.longitude]
+      );
       this.markers.push(marker);
     }.bind(this));
 
