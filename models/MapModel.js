@@ -16,7 +16,7 @@ var MapModel = Backbone.Model.extend({
     var sw = bounds.getSouthWest();
     var ne = bounds.getNorthEast();
 
-    var url = 'http://localhost:8081/findInRect/'+sw.lat+'/'+ sw.lng+'/'+ ne.lat+'/'+ ne.lng;
+    var url = 'http://foodtruckr-server.herokuapp.com/findInRect/'+sw.lat+'/'+ sw.lng+'/'+ ne.lat+'/'+ ne.lng;
     $.ajax({
       type:'GET',
       url: url,

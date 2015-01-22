@@ -1,6 +1,6 @@
 var InfoView = Backbone.View.extend({
   tagName: 'div',
-  className : 'info col-md-4',
+  className : 'info col-sm-4',
 
   initialize: function(){
 
