@@ -7,8 +7,8 @@ var AppView = Backbone.View.extend({
     // Instantiate child views
 
     // both map and info views watches the map model, which contains the truck property
-    this.mapView = new MapView({model: this.model.get('map')});
-    this.infoView = new InfoView({model: this.model.get('map') });
+    this.mapView = new MapView({model: this.model.get('map'), collection: this.model.get('trucks')});
+    this.infoView = new InfoView({collection: this.model.get('trucks') });
     this.navbarView = new NavbarView();
 
     // navbarView triggers search when the user want's to query the api for trucks
@@ -21,7 +21,7 @@ var AppView = Backbone.View.extend({
           .getBounds();
 
       // fetch trucks from API using this bounds
-      this.model.get('map').fetchTrucks(bounds);
+      this.model.get('trucks').fetch(bounds);
 
     },this); // binding is necessary to keep 'this' bound to the view
 

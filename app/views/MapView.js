@@ -8,7 +8,7 @@ var MapView = Backbone.View.extend({
   initialize: function() {
 
     // if mapModel's truck collection changes, re render
-    this.model.on('change:trucks',function(){
+    this.collection.on('change',function(){
       this.render();
     },this);
 
@@ -20,7 +20,7 @@ var MapView = Backbone.View.extend({
 
     // convenience variables
     var defaults = this.model.get('defaults');
-    var trucks = this.model.get('trucks');
+    var trucks = this.collection;
     var map = this.model.get('leaflet');
 
     // create leaflet map if needed

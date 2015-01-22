@@ -7,8 +7,8 @@ var InfoView = Backbone.View.extend({
     this.truckDetailView = new TruckDetailView();
 
     // when the truck property of the map model changes, re render
-    this.model.on('change:trucks',function(){
-      this.model.get('trucks').on('select',function(model){
+    this.collection.on('change',function(){
+      this.collection.on('select',function(model){
         this.truckDetailView.setTruck(model);
       },this);
       this.render();
@@ -24,7 +24,7 @@ var InfoView = Backbone.View.extend({
     this.$el.html(template).find('.truckList').append(
 
       // map the collection of trucks into an array of view $elements
-      this.model.get('trucks').map(function(truck){
+      this.collection.map(function(truck){
 
         // return the view $el for a single truck
         return new InfoItemView({model: truck}).render();
