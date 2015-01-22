@@ -24,29 +24,9 @@ Folder structure:
 
 * The whole app is nested inside a root AppModel and AppView.
 
-
-### Front end considerations
-### Model and View Hierarchy guidelines
-
-I used the following guidelines when coding this app. 
-
 * Models and Views are nested forming a tree, starting with the App Model and View as the root. Leafs cannot access their parents as is usual in layered architectures and must rely on firing events.
 
-* One model may be shared by multiple views.
-
-* Because of how references vs value passing works in javascript, in cases where sharing a model is necessary, the mutable part of the model is wrapped in properties. This mantains references intact across the tree.
-    * One such example is the trucks collection, which is wrapped on a MapModel instead of being passed directly to a view. Both MapView and InfoView share this model, but only the App mutates it. Only the truck property is mutated, which mantains the model reference intact.
-
-### About the generic Backbone Models/Views
-I have decided not to use the generic Backbone Models and Views and extend them even when no extra functionality was needed. 
-I chose to do this to keep a semantic file structure (every component has a name and it's place) and easy to extend. 
-
-### About classes in view's JS files.
-I have decided to set default classes for some html tags inside the backbone config object (using className: '....') instead of using the templates. 
-I chose to do this to avoid the unnecessary nesting of html tags and to avoid the extra complexity of replacing the $el which is the other workaround.
-
-### About 1 liner templates in JS files.
-In cases where the template would be simple enough to be written in a single line javascript expression, I have chosen not to use inline templates but rather string literals.
+### Front end considerations
 
 ## Map provider and considerations
 
@@ -59,8 +39,8 @@ This was solved by queueing this manipulation in the Event Queue (using `setTime
 
 ## API considerations
 
-* The app connects to the backend server using jQuery's $.ajax. Note that these calls were not abstracted in their own file because the small application size does not justify the increased architectural complexity. Consider doing this if the app grows.
+* The app connects to the backend server using jQuery's $.ajax. Note that these calls were not abstracted in their own file because this is the only http in the app which is very small.
 
 ## Building the app with grunt
 
-* Grunt has been used to automate the build process by running `grunt build`. This will concat and minify all js and css assets, and generate a self contained Single Page App in the dist folder.
+* Grunt has been used to automate the build process by running `grunt build`. This will concat and minify all js and css assets, and put all assets in a self contained dist folder.
