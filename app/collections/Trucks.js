@@ -20,7 +20,7 @@ var Trucks= Backbone.Collection.extend({
       success: function(resp){
         // on success mutate the trucks property, which will trigger mapModel's change:trucks event
         this.set(resp);
-        this.trigger('change');
+        this.trigger('fetch');
       }.bind(this) // binding is necessary to keep 'this' bound to the view
     })
   }

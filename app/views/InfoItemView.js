@@ -14,9 +14,9 @@ var InfoItemView = Backbone.View.extend({
     // when the truck is highlighted, make css modifications
     this.model.on('change',function(){
       if(this.model.attributes.highlight){
-        this.$el.addClass('alert-success');
+        this.$el.addClass('alert-info');
       }else{
-        this.$el.removeClass('alert-success');
+        this.$el.removeClass('alert-info');
       }
     }, this);
 

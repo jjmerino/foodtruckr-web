@@ -8,7 +8,7 @@ var MapView = Backbone.View.extend({
   initialize: function() {
 
     // if mapModel's truck collection changes, re render
-    this.collection.on('change',function(){
+    this.collection.on('fetch',function(){
       this.render();
     },this);
 

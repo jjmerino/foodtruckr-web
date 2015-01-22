@@ -3,7 +3,7 @@ html, body, .wrapper, .map { height: 100%; margin: 0; padding: 0; }
 .truckList li {
     cursor:pointer;
 }
-.panel-overlayed { background-color: #0d3349; color: #269abc;}
+.panel-overlayed { padding-left:0; background-color: rgba(13,51,73,0.8); color: #269abc;}
 .map {width:100%;}
 .search {background-color: #0d3349;}
 .foodDetails { height:40%; margin-bottom:51px; overflow-y: scroll;}

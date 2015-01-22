@@ -7,7 +7,7 @@ var InfoView = Backbone.View.extend({
     this.truckDetailView = new TruckDetailView();
 
     // when the truck property of the map model changes, re render
-    this.collection.on('change',function(){
+    this.collection.on('fetch',function(){
       this.collection.on('select',function(model){
         this.truckDetailView.setTruck(model);
       },this);
