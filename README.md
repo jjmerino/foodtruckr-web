@@ -5,11 +5,6 @@ This is the web client for the FoodTruckr project. This app relies on a connecti
 
 TODO: Link to the backend repository.
 
-This app does not rely on being served by the api server. 
-For more information on configuring CORS access to the API visit the FoodTruckr-server README.
-
-TODO: Link to the backend repository.
-
 
 ## Front end general architecture
 
@@ -53,3 +48,7 @@ This was solved by queueing this manipulation in the Event Queue (using `setTime
 ## API considerations
 
 * The app connects to the backend server using jQuery's $.ajax. Note that these calls were not abstracted in their own file because the small application size does not justify the increased architectural complexity. Consider doing this if the app grows.
+
+## Building the app with grunt
+
+* Grunt has been used to automate the build process by running `grunt build`. This will concat and minify all js and css assets, and generate a self contained Single Page App in the dist folder.

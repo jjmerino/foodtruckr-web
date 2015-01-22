@@ -4,34 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-  <style type="text/css">
-    html, body, .wrapper, .map { height: 100%; margin: 0; padding: 0; }
-    .truckList { height:50%; overflow-y : scroll;}
-    .truckList li {
-      cursor:pointer;
-    }
-    .foodDetails { height:40%; margin-bottom:51px; overflow-y: scroll;}
-    .info { height: 100%; padding-top: 51px;}
-  </style>
+
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+  <!-- build:css outstyle.css -->
   <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <!-- endbuild -->
 </head>
 <body class="row">
-
+<!-- build:js outapp.js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="bower_components/backbone/backbone.js"></script>
-<script src="models/MapModel.js"></script>
-<script src="models/TruckModel.js"></script>
-<script src="models/AppModel.js"></script>
-<script src="collections/Trucks.js"></script>
-<script src="views/NavbarView.js"></script>
-<script src="views/InfoView.js"></script>
-<script src="views/InfoItemView.js"></script>
-<script src="views/TruckDetailView.js"></script>
-<script src="views/MapView.js"></script>
-<script src="views/AppView.js"></script>
+<script src="app/models/MapModel.js"></script>
+<script src="app/models/TruckModel.js"></script>
+<script src="app/models/AppModel.js"></script>
+<script src="app/collections/Trucks.js"></script>
+<script src="app/views/NavbarView.js"></script>
+<script src="app/views/InfoView.js"></script>
+<script src="app/views/InfoItemView.js"></script>
+<script src="app/views/TruckDetailView.js"></script>
+<script src="app/views/MapView.js"></script>
+<script src="app/views/AppView.js"></script>
+<!-- endbuild -->
 <script type="text/html" id="templates_nav">
 <div class="navbar navbar-inverse navbar-fixed-top">
   <ul class="nav navbar-nav">
