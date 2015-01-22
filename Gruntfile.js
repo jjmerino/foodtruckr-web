@@ -8,19 +8,19 @@ module.exports = function (grunt) {
     useminPrepare: {
       html: 'index.html',
       options:{
-        dest:'dist'
+        dest:'dist/client'
       }
     },
     usemin: {
-      html: 'dist/index.html',
+      html: 'dist/client/index.html',
       options: {
-        assetsDirs: ['dist']
+        assetsDirs: ['dist/client']
       }
     },
     copy:{
       dist:{
         files:[{
-          dest: 'dist/',
+          dest: 'dist/client/',
           src:['index.html']
         }]
       }
@@ -32,9 +32,7 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
-            'dist/*',
-            'dist/.git*',
-            'dist/Procfile'
+            'dist/client*'
           ]
         }]
       }
