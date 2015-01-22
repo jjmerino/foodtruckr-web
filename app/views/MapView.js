@@ -3,7 +3,7 @@ var MapView = Backbone.View.extend({
   tagName: "div",
 
   // set classes of containing element.
-  className: "map col-sm-8",
+  className: "map",
 
   initialize: function() {
 

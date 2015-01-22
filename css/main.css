@@ -3,5 +3,8 @@ html, body, .wrapper, .map { height: 100%; margin: 0; padding: 0; }
 .truckList li {
     cursor:pointer;
 }
+.panel-overlayed { background-color: #0d3349; color: #269abc;}
+.map {width:100%;}
+.search {background-color: #0d3349;}
 .foodDetails { height:40%; margin-bottom:51px; overflow-y: scroll;}
-.info { height: 100%; padding-top: 51px;}
+.info { position: fixed; right:0; top: 0; min-width:124px; width:30%;height: 100%; padding-top: 51px;}

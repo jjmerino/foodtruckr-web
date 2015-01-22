@@ -1,6 +1,6 @@
 var TruckDetailView = Backbone.View.extend({
   tagName: 'div',
-  className: 'panel panel-default foodDetails',
+  className: 'panel panel-overlayed foodDetails',
 
   initialize: function(){
 
