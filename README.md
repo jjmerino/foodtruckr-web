@@ -25,10 +25,12 @@ Folder structure:
 * The whole app is nested inside a root AppModel and AppView.
 
 
-
+### Front end considerations
 ### Model and View Hierarchy guidelines
 
-* Models and Views are nested forming a tree, starting with the App Model and View as the root. Leafs cannot access their parents as is usual in layered architectures and must rely on events.
+I used the following guidelines when coding this app. 
+
+* Models and Views are nested forming a tree, starting with the App Model and View as the root. Leafs cannot access their parents as is usual in layered architectures and must rely on firing events.
 
 * One model may be shared by multiple views.
 
