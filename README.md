@@ -1,9 +1,8 @@
 # FoodTruckr web client
 
 ## Introduction
-This is the web client for the FoodTruckr project. This app relies on a connection to a backend server, which can be found here:
-
-TODO: Link to the backend repository.
+This is the web client for the FoodTruckr project. ***IMPORTANT*** This readme describes only the Front end considerations. 
+For the general descrition of the FoodTruckr service and the Back end considerations, see the [Foodtruckr-Server Readme](https://github.com/jjmerino/foodtruckr-server) 
 
 
 ## Front end general architecture
@@ -11,10 +10,21 @@ TODO: Link to the backend repository.
 * The application consists of a single page app powered by BackboneJS
 
 * Since application size is small, files have been grouped in models, views and collections folders, instead of by domain entities (e.g: trucks folder).
+Folder structure:
+```
+|-app/
+   |-collections/
+   |-models/
+   |-views/
+|-css/
+|-index.html
+```
 
 * For the same reason, inline templates have been used and processed with underscore.js, and all templates are stored in index.html, requiring less http calls.
 
 * The whole app is nested inside a root AppModel and AppView.
+
+
 
 ### Model and View Hierarchy guidelines
 
