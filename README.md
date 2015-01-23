@@ -12,13 +12,31 @@ For the general descrition of the FoodTruckr service and the Back end considerat
 * Since application size is small, files have been grouped in models, views and collections folders, instead of by domain entities (e.g: trucks folder).
 Folder structure:
 ```
-|-app/
-   |-collections/
-   |-models/
-   |-views/
-|-css/
-|-index.html
+├── Gruntfile.js
+├── README.md
+├── app
+│   ├── collections
+│   │   └── Trucks.js
+│   ├── models
+│   │   ├── AppModel.js
+│   │   ├── MapModel.js
+│   │   └── TruckModel.js
+│   └── views
+│       ├── AppView.js           
+│       ├── InfoItemView.js      // E
+│       ├── InfoView.js          // B
+│       ├── MapView.js           // A
+│       ├── NavbarView.js        // C
+│       └── TruckDetailView.js   // D
+├── bower.json
+├── css
+│   └── main.css
+├── doc
+│   └── app.png
+├── index.html
+└── package.json
 ```
+![app structure](doc/app.png)
 
 * For the same reason, inline templates have been used and processed with underscore.js, and all templates are stored in index.html, requiring less http calls.
 
