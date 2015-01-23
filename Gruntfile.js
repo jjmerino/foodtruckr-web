@@ -22,6 +22,7 @@ module.exports = function (grunt) {
         files:[{
           dest: 'dist/client/',
           src:['index.html']
+
         }]
       }
 

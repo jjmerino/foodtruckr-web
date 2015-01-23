@@ -43,22 +43,23 @@ var MapView = Backbone.View.extend({
     }
 
     // create an array to keep track of previously drawn markers.
-    this.markers = this.markers || [];
+    this.markers = this.markers || new L.MarkerClusterGroup({ disableClusteringAtZoom: 16 });
 
     // clear markers from map
-    _.each(this.markers, function(marker){
-      map.removeLayer(marker);
-    });
+    map.removeLayer(this.markers);
 
-    // remove markers from array
-    this.markers = [];
+    // clear markers from the clusterer
+    this.markers.clearLayers();
 
     // create markers and event handlers for each truck
     trucks.each(function(truck, index){
 
       // create the marker at lat,lng
       var marker = L.marker(
-        [truck.attributes.latitude, truck.attributes.longitude]
+        [truck.attributes.latitude, truck.attributes.longitude],
+        {
+          title: truck.attributes.applicant
+        }
       );
 
       // make mouse hover toggle the highlight property so that this and other views can react
@@ -73,30 +74,24 @@ var MapView = Backbone.View.extend({
         truck.select();
       });
 
-      // set default opacity low to make selected markers stand out
-      marker.setOpacity(0.5);
-
-      // this view reacts to truck property changes either
       truck.on('change',function(newTruck){
 
         // highlighted trucks' markers have more opacity
         if(newTruck.attributes.highlight){
-          marker.setOpacity(1);
-        } else {
           marker.setOpacity(0.5);
+        } else {
+          marker.setOpacity(1);
         }
 
       });
 
       // add the marker to the map
-      marker.addTo(map);
-
-      // keep track of marker
-      this.markers.push(marker);
+      this.markers.addLayer(marker);
 
       // bind "each"'s callback to the view for easy access.
     }.bind(this));
 
+    map.addLayer(this.markers);
 
   }
 
