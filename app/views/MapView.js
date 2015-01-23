@@ -43,7 +43,7 @@ var MapView = Backbone.View.extend({
     }
 
     // create an array to keep track of previously drawn markers.
-    this.markers = this.markers || new L.MarkerClusterGroup({ disableClusteringAtZoom: 16 });
+    this.markers = this.markers || new L.MarkerClusterGroup({ disableClusteringAtZoom: 15 });
 
     // clear markers from map
     map.removeLayer(this.markers);

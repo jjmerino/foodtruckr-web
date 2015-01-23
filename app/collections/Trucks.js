@@ -11,7 +11,7 @@ var Trucks= Backbone.Collection.extend({
 
     var sw = bounds.getSouthWest();
     var ne = bounds.getNorthEast();
-    var url = 'http://foodtruckr-server.herokuapp.com/findInRect/'+sw.lat+'/'+ sw.lng+'/'+ ne.lat+'/'+ ne.lng;
+    var url = 'https://foodtruckr-server.herokuapp.com/findInRect/'+sw.lat+'/'+ sw.lng+'/'+ ne.lat+'/'+ ne.lng;
 
     $.ajax({
       type:'GET',
