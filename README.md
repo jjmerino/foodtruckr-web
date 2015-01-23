@@ -2,7 +2,7 @@
 
 ## Introduction
 This is the web client for the FoodTruckr project. ***IMPORTANT*** This readme describes only the Front end considerations. 
-For the general descrition of the FoodTruckr service and the Back end considerations, see the [Foodtruckr-Server Readme](https://github.com/jjmerino/foodtruckr-server) 
+For the general description of the FoodTruckr service and the Back end considerations, see the [Foodtruckr-Server Readme](https://github.com/jjmerino/foodtruckr-server) 
 
 
 ## Front end general architecture
