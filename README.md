@@ -62,3 +62,11 @@ This was solved by queueing this manipulation in the Event Queue (using `setTime
 ## Building the app with grunt
 
 * Grunt has been used to automate the build process by running `grunt build`. This will concat and minify all js and css assets, and put all assets in a self contained dist folder.
+
+### Missing things / next steps
+Most things that are missing in the front end are due to the back-end focus of the solution in the limited time available.
+* Work has to be done to improve the UX
+* Make a grunt task for rewiring the api urls depending on an environment variable (prod or dev)
+* Functional tests
+* Search bar for address lookup
+* Filtering of food trucks based on food items.
