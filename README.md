@@ -46,7 +46,7 @@ Folder structure:
 
 ### Front end considerations
 
-## Map provider and considerations
+## Map provider
 
 * Mapbox has been used as the map provider for it's ease of customization.
 
@@ -55,7 +55,7 @@ Folder structure:
 * Leaflet relies on reading the size of it's element on runtime for certain operations. Since the map gets created before the view is inserted in the html, unexpected behaviour occurs when panning the map on the render function.
 This was solved by queueing this manipulation in the Event Queue (using `setTimeout(...,0)` ). This ensures the map is already inserted in the HTML, and *does* have a size when Leaflet reads it.
 
-## API considerations
+## API
 
 * The app connects to the backend server using jQuery's $.ajax. Note that these calls were not abstracted in their own file because this is the only http in the app which is very small.
 
@@ -65,7 +65,7 @@ This was solved by queueing this manipulation in the Event Queue (using `setTime
 
 ### Missing things / next steps
 Most things that are missing in the front end are due to the back-end focus of the solution in the limited time available.
-* Work has to be done to improve the UX
+* Work has to be done on the UX
 * Make a grunt task for rewiring the api urls depending on an environment variable (prod or dev)
 * Functional tests
 * Search bar for address lookup
